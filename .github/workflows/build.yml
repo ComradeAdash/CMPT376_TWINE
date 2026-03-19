@@ -1,0 +1,43 @@
+name: Build Twine Story
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Install tweego
+        run: |
+          curl -L https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-linux-x64.zip -o tweego.zip
+          unzip tweego.zip
+          chmod +x tweego
+
+      - name: Download Harlowe story format
+        run: |
+          mkdir -p storyformats/harlowe-3.3.9
+          curl -L https://github.com/tmedwards/twine-utils/releases/download/v1.0.0/harlowe-3.3.9.zip -o harlowe.zip
+          unzip harlowe.zip -d storyformats/harlowe-3.3.9 || true
+
+      - name: Compile story
+        run: ./tweego -o story.html src/*.twee
+
+      - name: Upload story HTML as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: story-html
+          path: story.html
+          retention-days: 90
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          include_files: story.html

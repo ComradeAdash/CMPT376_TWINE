@@ -1,0 +1,12 @@
+:: StoryTitle
+Our Story Title Here
+
+:: StoryData
+{
+  "ifid": "REPLACE-WITH-A-UUID",
+  "format": "Harlowe",
+  "format-version": "3.3.9"
+}
+
+:: Start
+This is the beginning. [[Go forward->Chapter1]]
