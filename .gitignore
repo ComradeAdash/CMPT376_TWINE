@@ -1,0 +1,72 @@
+# remove this line if we want to directly commit the built HTML file
+story.html
+preview.html
+
+# Any local test builds
+*.build.html
+dist/
+
+# ─── tweego binary & downloads ─────────────────────────────────────────────────
+tweego
+tweego.exe
+tweego.zip
+harlowe.zip
+*.zip
+
+# ─── Story formats (large, downloaded by CI) ───────────────────────────────────
+# Uncomment if you store formats locally instead of downloading in CI
+# storyformats/
+
+# ─── OS files ──────────────────────────────────────────────────────────────────
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ─── Editors ───────────────────────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# JetBrains / IntelliJ
+.idea/
+*.iml
+
+# Vim / Neovim
+*.swp
+*.swo
+Session.vim
+
+# Emacs
+\#*\#
+.\#*
+
+# ─── Twine desktop app ─────────────────────────────────────────────────────────
+# Twine 2 auto-saves and backups (if anyone uses the desktop app)
+*.tw-backup
+*.tw2
+
+# ─── Node / npm (if using any JS tooling) ──────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# ─── Misc ──────────────────────────────────────────────────────────────────────
+*.log
+*.tmp
+*.bak
+.env
