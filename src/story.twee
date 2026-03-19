@@ -3,7 +3,7 @@ Our Story Title Here
 
 :: StoryData
 {
-  "ifid": "REPLACE-WITH-A-UUID",
+  "ifid": "661cf179-8607-413d-bf07-30afb6db90cb",
   "format": "Harlowe",
   "format-version": "3.3.9"
 }
